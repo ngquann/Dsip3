@@ -105,7 +105,6 @@ export default function ConfirmSettlement({ type, onNext, onBack }: { type: 'PAR
         <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-6 mb-8">
           <div className="flex justify-between items-center mb-6">
             <h3 className="text-lg font-bold">Thông tin tất toán</h3>
-            <span className="text-sm font-medium text-slate-500">Mã kế hoạch: PLAN-99283</span>
           </div>
 
           <div className="space-y-4">
@@ -113,17 +112,9 @@ export default function ConfirmSettlement({ type, onNext, onBack }: { type: 'PAR
               <span className="text-slate-600">Tổng giá trị bán dự kiến</span>
               <span className="font-bold text-lg">{type === 'PARTIAL' ? '5,000,000 VND' : '125,450,000 VND'}</span>
             </div>
-            <div className="flex justify-between items-center py-3 border-b border-slate-100">
-              <span className="text-slate-600">Phí tất toán {type === 'FULL' && 'trước hạn'}</span>
-              <span className="font-bold text-[#ec5b13]">{type === 'PARTIAL' ? '- 0 VND' : '- 500,000 VND'}</span>
-            </div>
-            <div className="flex justify-between items-center py-3 border-b border-slate-100">
-              <span className="text-slate-600">Thuế TNCN (tạm tính)</span>
-              <span className="font-bold text-[#ec5b13]">{type === 'PARTIAL' ? '- 5,000 VND' : '- 125,450 VND'}</span>
-            </div>
             <div className="flex justify-between items-center py-4 bg-slate-50 rounded-lg px-4 mt-4">
               <span className="font-bold text-slate-800">Tổng tiền thực nhận (dự kiến)</span>
-              <span className="font-bold text-2xl text-[#ec5b13]">{type === 'PARTIAL' ? '4,995,000 VND' : '124,824,550 VND'}</span>
+              <span className="font-bold text-2xl text-[#ec5b13]">{type === 'PARTIAL' ? '5,000,000 VND' : '125,450,000 VND'}</span>
             </div>
           </div>
         </div>

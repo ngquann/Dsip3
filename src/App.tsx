@@ -22,18 +22,18 @@ export default function App() {
     if (type === 'PARTIAL') {
       setCurrentScreen('PartialWithdrawal');
     } else {
-      setCurrentScreen('FullWithdrawal');
+      setCurrentScreen('ContractSigning');
     }
   };
 
   const handleBack = () => {
-    if (currentScreen === 'PartialWithdrawal' || currentScreen === 'FullWithdrawal') {
+    if (currentScreen === 'PartialWithdrawal' || currentScreen === 'ContractSigning') {
       setCurrentScreen('MethodSelection');
+    } else if (currentScreen === 'FullWithdrawal') {
+      setCurrentScreen('ContractSigning');
     } else if (currentScreen === 'ConfirmSettlement') {
       setCurrentScreen(withdrawalType === 'PARTIAL' ? 'PartialWithdrawal' : 'FullWithdrawal');
     } else if (currentScreen === 'OTP') {
-      setCurrentScreen('ConfirmSettlement');
-    } else if (currentScreen === 'ContractSigning') {
       setCurrentScreen('ConfirmSettlement');
     }
   };
@@ -49,6 +49,12 @@ export default function App() {
           onBack={handleBack} 
         />
       )}
+      {currentScreen === 'ContractSigning' && (
+        <PlanAdjustmentModal 
+          onConfirm={() => setCurrentScreen('FullWithdrawal')} 
+          onClose={handleBack} 
+        />
+      )}
       {currentScreen === 'FullWithdrawal' && (
         <FullWithdrawal 
           onNext={() => setCurrentScreen('ConfirmSettlement')} 
@@ -58,14 +64,8 @@ export default function App() {
       {currentScreen === 'ConfirmSettlement' && (
         <ConfirmSettlement 
           type={withdrawalType}
-          onNext={() => setCurrentScreen(withdrawalType === 'FULL' ? 'ContractSigning' : 'OTP')} 
+          onNext={() => setCurrentScreen(withdrawalType === 'FULL' ? 'Success' : 'OTP')} 
           onBack={handleBack} 
-        />
-      )}
-      {currentScreen === 'ContractSigning' && (
-        <PlanAdjustmentModal 
-          onConfirm={() => setCurrentScreen('Success')} 
-          onClose={handleBack} 
         />
       )}
       {currentScreen === 'OTP' && (

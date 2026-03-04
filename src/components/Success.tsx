@@ -1,5 +1,5 @@
 import React from 'react';
-import { CheckCircle2, Home, FileText } from 'lucide-react';
+import { CheckCircle2, Home } from 'lucide-react';
 
 export default function Success({ onHome }: { onHome: () => void }) {
   return (
@@ -14,10 +14,6 @@ export default function Success({ onHome }: { onHome: () => void }) {
         
         <div className="w-full bg-slate-50 rounded-xl p-4 mb-8 text-left space-y-3 border border-slate-100">
           <div className="flex justify-between">
-            <span className="text-slate-500 text-sm">Mã giao dịch</span>
-            <span className="font-bold text-slate-700 text-sm">TXN-98237492</span>
-          </div>
-          <div className="flex justify-between">
             <span className="text-slate-500 text-sm">Thời gian</span>
             <span className="font-bold text-slate-700 text-sm">24/05/2024 14:30:22</span>
           </div>
@@ -28,13 +24,9 @@ export default function Success({ onHome }: { onHome: () => void }) {
         </div>
 
         <div className="w-full space-y-3">
-          <button className="w-full h-14 rounded-xl border-2 border-[#ec5b13] text-[#ec5b13] font-bold text-base hover:bg-[#ec5b13]/5 transition-colors flex items-center justify-center gap-2">
-            <FileText className="w-5 h-5" />
-            Xem chi tiết giao dịch
-          </button>
           <button onClick={onHome} className="w-full h-14 rounded-xl bg-[#ec5b13] text-white font-bold text-base shadow-lg shadow-[#ec5b13]/20 hover:bg-[#ec5b13]/90 transition-colors flex items-center justify-center gap-2">
             <Home className="w-5 h-5" />
-            Về trang chủ
+            Quản lý DSIP
           </button>
         </div>
       </div>
